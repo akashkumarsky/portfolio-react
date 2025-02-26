@@ -77,7 +77,11 @@
     color: white;
     cursor: pointer;
     transition: 0.5s;
+    text-decoration: none;
+    border: none;
+    outline: none;
 }
+
 
 .nav-connect:hover {
     transform: scale(1.1);
