@@ -1,31 +1,85 @@
-.navbar{
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px 170px;
-}
-.navbar img{
-    width: 100px;
-    height: 30px;
-}
-.nav-menu{
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-    align-items: center;
-    gap:60px;
-    font-size: 20px;
-}
-.nav-connect{
-   padding: 12px;
-   border-radius: 50px;
-   background: linear-gradient(267deg, #DA7C25 0.36%, #B923E1 102.06%);
-   font-size: 22px;
-   cursor: pointer;
-   transition: 0.5s;
-}
-.nav-connect:hover{
-    transform: scale(1.05);
-    background: linear-gradient(267deg, #B923E1 0.36%, #DA7C25 102.06%);
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    position: flex;
     
+    top: 0;
+    left: 80px;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+    cursor: pointer;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 50px;
+}
+
+.nav-menu li {
+    position: relative;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease-in-out;
+    padding: 8px 0;
+}
+
+.nav-menu li:hover a {
+    color: #B415FF;
+}
+
+/* Active Link */
+.nav-menu li .active {
+    color: #DF8908;
+    font-weight: bold;
+}
+
+/* Underline effect for active item */
+.nav-menu li .active::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(to right, #DF8908, #B415FF);
+    border-radius: 50px;
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
+}
+
+/* Hover effect expands underline */
+.nav-menu li:hover .active::after {
+    width: 80%;
+}
+
+/* Connect Button */
+.nav-connect {
+    padding: 12px 20px;
+    margin-right: 40px;
+    border-radius: 50px;
+    background: linear-gradient(267deg, #DA7C25 0.36%, #B923E1 102.06%);
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.nav-connect:hover {
+    transform: scale(1.1);
+    background: linear-gradient(267deg, #B923E1 0.36%, #DA7C25 102.06%);
 }
