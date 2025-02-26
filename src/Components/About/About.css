@@ -34,8 +34,8 @@
     gap:80px;
 }
 .about-left img{
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 600px;
     border-radius: 05%;
     padding: 5px;
     
@@ -52,6 +52,7 @@
     gap: 20px;
     font-size: 20px;
     font-weight: 500;
+    text-align: justify;
 }
 
 .about-skills{

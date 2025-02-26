@@ -17,8 +17,10 @@ const About = () => {
         
         <div className="about-right">
             <div className="about-para">
-                <p>Hi, I'm Akash kumar, Full Stack Java Developer Based In Bengalure India.</p>
-                <p>I specialize in building high-quality websites and applications. Get in touch with me.</p>
+                <p>Hi, I'm Akash Kumar, a passionate Java Full Stack Developer with a strong foundation in Spring Boot, Microservices, Hibernate, SQL, and React.</p>
+                <p>I graduated in 2023 with a degree in Computer Science Engineering (CSE) and have been dedicated to building scalable, high-performance web applications ever since.
+                </p>
+                <p>With hands-on experience in Spring Boot and Microservices architecture, I have developed and deployed projects that integrate various technologies, including MongoDB, MySQL, PostgreSQL, and Docker. I also enjoy working with frontend technologies like React, ensuring seamless user experiences.</p>
             </div>
             <div className="about-sklls">
                 <div className="about-skill"><p>SpringBoot 3 </p> <hr style={{width:"80%"}} /></div>
