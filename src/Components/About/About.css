@@ -1,192 +1,168 @@
-/* General container styling */
+/* Base styling for the entire About section */
 .about {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 60px;
-    margin: 80px 10%;
-    padding-bottom: 80px;
+    justify-content: center;
+    gap: 80px;
+    margin: 80px 170px;
 }
 
+/* Styling for the main "About Me" title */
 .about-title {
     position: relative;
 }
 
 .about-title h1 {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    padding: 0px 30px;
+    font-size: 80px;
     font-weight: 600;
-    color: #333;
 }
 
-/* Consistent modern underline effect */
-.about-title::after {
-    content: '';
-    width: 60%;
-    height: 5px;
-    border-radius: 10px;
-    background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* Two-column responsive layout */
+/* Two-column layout container for image/text and skills */
 .about-sections {
-    display: grid;
-    grid-template-columns: 1fr 2fr; /* Image takes 1/3, text takes 2/3 */
-    gap: 60px;
-    align-items: flex-start; /* Aligns items to the top */
-    width: 100%;
+    display: flex;
+    gap: 80px;
 }
 
+/* --- UPDATED: Left section is now a flex column to stack image and text --- */
 .about-left {
+    flex-basis: 45%; /* Adjusted basis slightly */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    gap: 40px; /* Space between image and text block */
 }
 
 .about-profile-img {
     width: 100%;
-    max-width: 300px;
-    border-radius: 20px; /* Softer corners */
-    object-fit: cover;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease;
-}
-
-.about-profile-img:hover {
-    transform: scale(1.05);
-}
-
-.about-right {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+    max-width: 400px; /* Optional: adjust max width as needed */
+    border-radius: 10px;
+    align-self: flex-start; /* Aligns image to the start of the column */
 }
 
 .about-para {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #555;
-    text-align: justify;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.6;
 }
 
-/* --- Animated Skill Bars --- */
+
+/* --- Right section for skills --- */
+.about-right {
+    flex-basis: 50%; /* Adjusted basis slightly */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center the skills block */
+}
+
+/* Container for all skill bars */
 .about-skills {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
+/* Individual skill item (name + bar) */
 .about-skill {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
 }
 
 .about-skill p {
-    font-size: 1rem;
+    font-size: 18px;
     font-weight: 500;
-    color: #333;
 }
 
+/* The background/track of the skill bar */
 .skill-bar {
+    height: 8px;
     width: 100%;
-    height: 10px;
-    background-color: #e0e0e0;
+    background-color: #ddd;
     border-radius: 10px;
-    overflow: hidden;
+    position: relative; /* Needed for the inner level bar */
 }
 
+/* The filled part of the skill bar, animated */
 .skill-level {
     height: 100%;
-    width: var(--skill-level); /* Uses the custom property from React */
-    background: linear-gradient(90deg, #DF8908 0%, #B415FF 100%);
+    background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
     border-radius: 10px;
-    animation: progress-animation 2s ease-out forwards;
+    width: var(--skill-level); /* Width is set by the inline style in React */
+    transition: width 0.5s ease-in-out;
 }
 
-/* Keyframe animation for the progress bar */
-@keyframes progress-animation {
-    from {
-        width: 0%;
-    }
-    to {
-        width: var(--skill-level);
-    }
-}
 
-/* --- Achievements Section --- */
+/* Container for achievement counters */
 .about-achievements {
     display: flex;
-    justify-content: space-around;
     width: 100%;
-    margin-top: 40px;
-    gap: 30px;
+    justify-content: space-around;
+    margin-top: 50px;
 }
 
 .about-achievement {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
     gap: 10px;
-    padding: 0 20px;
-    position: relative;
+    transition: transform 0.3s;
 }
 
-/* Elegant dividers using pseudo-elements */
-.about-achievement:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    right: -15px; /* Adjust based on gap */
-    top: 50%;
-    transform: translateY(-50%);
-    height: 70%;
-    width: 2px;
-    background-color: #ddd;
+.about-achievement:hover {
+    transform: scale(1.1);
 }
 
 .about-achievement h1 {
-    font-size: 3.5rem;
+    font-size: 60px;
     font-weight: 700;
-    background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
-    -webkit-background-clip: text;
+    background: linear-gradient(270deg, #DF8908 50%, #B415FF 100%);
     background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .about-achievement p {
-    color: #555;
+    font-size: 18px;
     font-weight: 500;
-    font-size: 1rem;
 }
 
-/* --- Responsive Design for smaller screens --- */
-@media(max-width: 800px) {
+
+/* --- Media Queries for Responsiveness --- */
+
+@media(max-width: 768px) {
+    .about {
+        gap: 80px;
+        margin: 50px 70px;
+        align-items: flex-start;
+    }
+
+    .about-title h1 {
+        font-size: 50px;
+        padding: 0;
+    }
+
+    /* Stack the left and right columns vertically */
     .about-sections {
-        grid-template-columns: 1fr; /* Stack columns */
+        flex-direction: column;
+        gap: 50px;
     }
 
-    .about-left {
-        grid-row: 1; /* Ensure image is on top */
-    }
-
-    .about-profile-img {
-        max-width: 250px;
-        margin-bottom: 20px;
+    .about-para {
+        font-size: 18px;
+        line-height: 1.5;
     }
 
     .about-achievements {
         flex-direction: column;
+        gap: 40px;
         align-items: center;
     }
 
-    .about-achievement:not(:last-child)::after {
-        content: none; /* Remove vertical dividers on mobile */
+    .about-achievement {
+        text-align: center;
     }
 }

@@ -3,6 +3,7 @@ import demo from './demo.gif';
 import potflio from './potflio.png';
 import aiquizmaster from './aiquizmaster.png';
 import nykaa from './nykaa.png';
+import favsky from './favsky.png';
 
 export const mywork_data = [
   {
@@ -37,7 +38,7 @@ export const mywork_data = [
     w_title: 'E-Commerce Website',
     w_description:
       'Created a user-friendly, mobile-responsive interface using React.js and Material-UI for consistent user experience.',
-    w_img: demo,
+    w_img: favsky,
     w_github: 'https://github.com/akashkumarsky/e-commerce.git',
     w_url: 'https://portfolio-react-mauve-nu.vercel.app/',
   },
