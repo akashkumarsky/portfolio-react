@@ -1,123 +1,192 @@
-.about{
+/* General container styling */
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    margin: 80px 10%;
+    padding-bottom: 80px;
+}
+
+.about-title {
+    position: relative;
+}
+
+.about-title h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 600;
+    color: #333;
+}
+
+/* Consistent modern underline effect */
+.about-title::after {
+    content: '';
+    width: 60%;
+    height: 5px;
+    border-radius: 10px;
+    background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Two-column responsive layout */
+.about-sections {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Image takes 1/3, text takes 2/3 */
+    gap: 60px;
+    align-items: flex-start; /* Aligns items to the top */
+    width: 100%;
+}
+
+.about-left {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    gap: 80px;
-    margin: 80px 170px;
-    
-}
-.about-title{
-    position: relative;
-}
-.about-title h1{
-    padding: 0px 30px;
-    font-size: 80px;
-    font-weight: 600;
 }
 
-.about-title img{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-    width: 400px;
-    height: 100px;
-    border-radius: 60%;
-    box-shadow: 0px 0px 20px 0px #000;
-    padding: 5px;
-    margin-top: 35px;
+.about-profile-img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 20px; /* Softer corners */
+    object-fit: cover;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
 }
 
-.about-sections{
-    display: flex;
-    gap:80px;
-}
-.about-left img{
-    width: 500px;
-    height: 600px;
-    border-radius: 05%;
-    padding: 5px;
-    
-}
-.about-right{
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
+.about-profile-img:hover {
+    transform: scale(1.05);
 }
 
-.about-para{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    font-size: 20px;
-    font-weight: 500;
-    text-align: justify;
-}
-
-.about-skills{
+.about-right {
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
 
-.about-skill{
-    display: flex;
-    gap:40px;
-    align-items: center;
-    transition:0.5s;
-}
-.about-skill p{
+.about-para {
     display: flex;
     flex-direction: column;
-    margin-bottom: 8px;
-    min-width: 150px;
-    font-size:20px;
+    gap: 20px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    text-align: justify;
+}
+
+/* --- Animated Skill Bars --- */
+.about-skills {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.about-skill {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.about-skill p {
+    font-size: 1rem;
     font-weight: 500;
-    
-}
-.about-skill hr{
-    outline: none;
-    border: none;
-    width:50%;
-    height: 6px;
-    border-radius: 50px;
-    background: linear-gradient(264deg, #DF8908 -5.09%, #B415FF 106.28%);
+    color: #333;
 }
 
-.about-achievements{
+.skill-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    width: var(--skill-level); /* Uses the custom property from React */
+    background: linear-gradient(90deg, #DF8908 0%, #B415FF 100%);
+    border-radius: 10px;
+    animation: progress-animation 2s ease-out forwards;
+}
+
+/* Keyframe animation for the progress bar */
+@keyframes progress-animation {
+    from {
+        width: 0%;
+    }
+    to {
+        width: var(--skill-level);
+    }
+}
+
+/* --- Achievements Section --- */
+.about-achievements {
     display: flex;
-    width:100%;
-    justify-content: space-between;
-    margin-bottom: 80px;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 40px;
+    gap: 30px;
 }
 
-.about-achievement{
+.about-achievement {
     display: flex;
     flex-direction: column;
-    gap: 5px;
     align-items: center;
-   
+    text-align: center;
+    gap: 10px;
+    padding: 0 20px;
+    position: relative;
 }
-.about-achievement h1{
-    font-size: 60px;
+
+/* Elegant dividers using pseudo-elements */
+.about-achievement:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -15px; /* Adjust based on gap */
+    top: 50%;
+    transform: translateY(-50%);
+    height: 70%;
+    width: 2px;
+    background-color: #ddd;
+}
+
+.about-achievement h1 {
+    font-size: 3.5rem;
     font-weight: 700;
     background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
-    background-clip: text;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.about-achievement p{
-    font-size: 20px;
+
+.about-achievement p {
+    color: #555;
     font-weight: 500;
-    text-transform: uppercase;
+    font-size: 1rem;
 }
 
-.about-skill:hover{
-    transform: scale(1.05);
-    border-radius: 20px;
-}
-.about-achievement:hover{
-    transform: scale(1.05);
-    border-radius: 20px;
+/* --- Responsive Design for smaller screens --- */
+@media(max-width: 800px) {
+    .about-sections {
+        grid-template-columns: 1fr; /* Stack columns */
+    }
+
+    .about-left {
+        grid-row: 1; /* Ensure image is on top */
+    }
+
+    .about-profile-img {
+        max-width: 250px;
+        margin-bottom: 20px;
+    }
+
+    .about-achievements {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-achievement:not(:last-child)::after {
+        content: none; /* Remove vertical dividers on mobile */
+    }
 }

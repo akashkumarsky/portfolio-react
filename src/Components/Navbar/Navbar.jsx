@@ -2,19 +2,28 @@ import React, { useState } from 'react';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import './Navbar.css';
 import logo from '../../assets/logo.jpg';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
   const [menu, setMenu] = useState('home');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   return (
     <div className='navbar'>
       <img src={logo} alt='Docplanner Group' className="logo" />
-      <ul className='nav-menu'>
+      <div className="menu-icon" onClick={toggleMobileMenu}>
+        {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+      </div>
+      <ul className={isMobileMenuOpen ? 'nav-menu active' : 'nav-menu'}>
         <li>
           <AnchorLink
             href="#home"
             className={menu === "home" ? "active" : ""}
-            onClick={() => setMenu("home")}
+            onClick={() => { setMenu("home"); if (isMobileMenuOpen) toggleMobileMenu(); }}
           >
             Home
           </AnchorLink>
@@ -23,7 +32,7 @@ const Navbar = () => {
           <AnchorLink
             href="#about"
             className={menu === "about" ? "active" : ""}
-            onClick={() => setMenu("about")}
+            onClick={() => { setMenu("about"); if (isMobileMenuOpen) toggleMobileMenu(); }}
           >
             About Me
           </AnchorLink>
@@ -32,7 +41,7 @@ const Navbar = () => {
           <AnchorLink
             href="#projects"
             className={menu === "projects" ? "active" : ""}
-            onClick={() => setMenu("projects")}
+            onClick={() => { setMenu("projects"); if (isMobileMenuOpen) toggleMobileMenu(); }}
           >
             Projects
           </AnchorLink>
@@ -41,17 +50,17 @@ const Navbar = () => {
           <AnchorLink
             href="#contact"
             className={menu === "contact" ? "active" : ""}
-            onClick={() => setMenu("contact")}
+            onClick={() => { setMenu("contact"); if (isMobileMenuOpen) toggleMobileMenu(); }}
           >
             Contact
           </AnchorLink>
         </li>
       </ul>
-      
-        <AnchorLink href="#contact" onClick={() => setMenu("contact")} className="nav-connect">
-          Connect With Me
-        </AnchorLink>
-      
+
+      <AnchorLink href="#contact" onClick={() => setMenu("contact")} className="nav-connect">
+        Connect With Me
+      </AnchorLink>
+
     </div>
   );
 };

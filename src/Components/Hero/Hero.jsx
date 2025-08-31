@@ -2,21 +2,21 @@ import React from 'react'
 import './Hero.css'
 import profile_pic from '../../assets/profile_pic.jpg'
 import resume from '../../assets/resume.pdf'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 const Hero = () => {
   return (
     <div id='home' className='hero'>
-        <img src={profile_pic} alt='Profile' />
-        <h1><span>Hi, I'm Akash kumar,</span> Java Full Stack Developer Based In Bengalore India.</h1>
-        <p>I specialize in building high-quality websites and applications. Get in touch with me.</p>
-        <div className="hero-action">
-            <div className="hero-connect" onClick={() => {
-                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-            }}>Connect With Me</div>
-            <button className="hero-resume" onClick={() => {
-                window.open(resume, '_blank');
-            }}>My Resume</button>
-        </div>
+      <img src={profile_pic} alt='Profile portrait of Akash Kumar' className="hero-profile-img" />
+      <h1><span>Hi, I'm Akash Kumar,</span> a Java Full Stack Developer based in Bengaluru.</h1>
+      <p>I specialize in building scalable, high-performance web applications with a passion for elegant design and seamless user experiences.</p>
+      <div className="hero-action">
+        {/* Using an AnchorLink for smooth scrolling */}
+        <AnchorLink className='hero-connect' href='#contact'>Connect With Me</AnchorLink>
+
+        {/* This is now a proper link, which is better for a resume download */}
+        <a className="hero-resume" href={resume} download="Akash_Kumar_Resume.pdf">My Resume</a>
+      </div>
     </div>
   )
 }

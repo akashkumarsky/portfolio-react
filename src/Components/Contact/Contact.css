@@ -1,29 +1,23 @@
-/* Container for the two-column layout */
 .contact-container {
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
-    padding: 50px;
-   
+    padding: 50px 20px;
     justify-content: center;
   }
   
-  /* Left Column: Contact Info with dark theme */
-  .contact-info {
+  .contact-info, .contact-form {
     flex: 1 1 400px;
-   
-     /* White text */
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  .contact-info h2 {
+  .contact-info h2, .contact-form h2 {
     margin-bottom: 20px;
-    color: #DF8908; /* Orange for headings */
+    color: #DF8908;
   }
   
-  /* Contact info item styling with icons */
   .info-item {
     display: flex;
     align-items: center;
@@ -33,7 +27,7 @@
   .info-icon {
     font-size: 20px;
     margin-right: 10px;
-    color: #DF8908; /* Accent icon color */
+    color: #DF8908;
   }
   
   .contact-info p {
@@ -41,46 +35,29 @@
     font-size: 16px;
   }
   
-  /* Right Column: Email Form */
-  .contact-form {
-    flex: 1 1 400px;
-  
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(83, 82, 82, 0.1);
-  }
-  
-  .contact-form h2 {
-    margin-bottom: 20px;
-    color: #DF8908; /* Orange for headings */
-  }
-  
-  /* Form groups spacing */
   .contact-form form .form-group {
     margin-bottom: 20px;
   }
   
-  /* Styling for input fields and textarea with black background */
   .contact-form form input,
   .contact-form form textarea {
     width: 100%;
     padding: 12px 15px;
     font-size: 16px;
-    border: 2px solid #DF8908; /* Orange border */
+    border: 2px solid #DF8908;
     border-radius: 5px;
     outline: none;
     transition: border-color 0.3s ease;
-    background-color: #302b2b; /* Black background */
-    color: #fff;            /* White text */
+    background-color: #302b2b;
+    color: #fff;
+    box-sizing: border-box;
   }
   
-  /* Change border color on focus */
   .contact-form form input:focus,
   .contact-form form textarea:focus {
-    border-color: #B415FF; /* Purple on focus */
+    border-color: #B415FF;
   }
   
-  /* Submit button styling */
   .contact-form form button {
     width: 100%;
     padding: 15px;
@@ -93,8 +70,6 @@
     transition: transform 0.3s ease;
   }
   
-  /* Button hover effect */
   .contact-form form button:hover {
     transform: scale(1.05);
   }
-  

@@ -1,68 +1,145 @@
-.hero{
+/* --- Hero Section Main Container --- */
+.hero {
+    min-height: 100vh; /* Ensures it takes the full screen height */
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 80%);
+    background-size: 200% 200%;
+    animation: gradient-animation 15s ease infinite;
+
     display: flex;
-    align-items: center;
     flex-direction: column;
-    gap: 35px;
-   
-}
-.hero img{
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    box-shadow: 0px 0px 20px 0px #000;
-    padding: 5px;
-    margin-top: 35px;
-}
-.hero h1{
-    font-size: 50px;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    padding: 0 10%;
     text-align: center;
-    width: 70%;
-    font-weight: 600;
-    margin-bottom: -20px;
+    color: #fff;
+    overflow: hidden; /* Prevents animations from showing outside the hero area */
 }
-.hero h1 span{
+
+/* Keyframe animation for the background gradient */
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- Content Styling & Animations --- */
+.hero-profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid #DF8908;
+    object-fit: cover;
+    box-shadow: 0 0 30px rgba(223, 137, 8, 0.5);
+    animation: fadeInScale 1s ease-out forwards;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem); /* Responsive font size */
+    font-weight: 700;
+    line-height: 1.2;
+    max-width: 900px;
+    animation: fadeInUp 1s ease-out 0.2s forwards;
+    opacity: 0;
+}
+
+/* Gradient effect on the highlighted text */
+.hero h1 span {
     background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
-    background-clip: text;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.hero p{
-    font-size: 22px;
-    text-align: center;
-    width:50%;
-    line-height: 40px;
+
+.hero p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 750px;
+    color: #d1d1d1;
+    animation: fadeInUp 1s ease-out 0.4s forwards;
+    opacity: 0;
 }
 
-.hero-action{
+/* --- Buttons / Call-to-Action --- */
+.hero-action {
     display: flex;
     align-items: center;
-    gap: 40px;
-    font-size: 22px;
-    font-weight: 500;
-    margin-bottom: 50px;
-}
-.hero-connect{
-    padding: 15px 25px;
-    border-radius: 50px;
-    background: linear-gradient(264deg, #DF8908 -5.09%, #B415FF 106.28%);
-    cursor: pointer;
-    transition: 0.5s;
-    
-    
-}
-.hero-resume{
-    background: transparent;
-    padding: 15px 60px;
-    border-radius: 50px;
-    border: 2px solid #FFF;
-    cursor: pointer;
-    color: #FFF;
+    gap: 25px;
+    margin-top: 20px;
+    animation: fadeInUp 1s ease-out 0.6s forwards;
+    opacity: 0;
 }
 
-.hero-connect:hover{
+.hero-connect, .hero-resume {
+    padding: 18px 35px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Primary Button Style */
+.hero-connect {
+    background: linear-gradient(270deg, #DF8908 0%, #B415FF 100%);
+    color: white;
+    border: none;
+}
+
+.hero-connect:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #b415ff9a;
+}
+
+/* Secondary/Outline Button Style */
+.hero-resume {
+    color: white;
     border: 2px solid white;
+    background: transparent;
+}
+
+.hero-resume:hover {
+    background-color: white;
+    color: #2c3e50;
     transform: scale(1.05);
 }
-.hero-resume:hover{
-    border-color: #B415FF;
+
+/* --- Keyframe Animations --- */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Responsive Adjustments --- */
+@media(max-width: 768px) {
+    .hero-action {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
 }

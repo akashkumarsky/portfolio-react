@@ -1,97 +1,124 @@
+/* ADD THIS NEW RULE to your MyWork.css file */
+
+.work-card-links {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Creates space between the two icons */
+    margin-top: 15px; /* Creates space above the icons */
+}
+
+
+/* --- ALL YOUR OTHER CSS STYLES CAN REMAIN THE SAME --- */
+
+/* General container styling */
 .mywork {
-    text-align: center;
-    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin: 80px 10%;
+}
+
+.mywork-title {
+    position: relative;
+    margin-bottom: 20px;
 }
 
 .mywork-title h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align: center;
-    
-    /* Gradient Text */
-    background: linear-gradient(to right, #DF8908, #B415FF);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    /* Text Shadow for Depth */
-    text-shadow: 2px 2px 8px rgba(180, 21, 255, 0.3);
-
-    /* Underline Effect */
-    position: relative;
-    display: inline-block;
-    padding-bottom: 10px;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 600;
+    color: #333;
 }
 
-.mywork-title h1::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -5px;
+.mywork-title::after {
+    content: '';
     width: 60%;
-    height: 3px;
-    background: linear-gradient(to right, #DF8908, #B415FF);
+    height: 5px;
+    border-radius: 10px;
+    background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
     transform: translateX(-50%);
-    border-radius: 50px;
 }
 
-
+/* Responsive Grid container for project cards */
 .mywork-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    justify-content: center;
-    align-items: stretch;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    width: 100%;
 }
 
+/* Individual project card styling */
 .work-card {
-    background: linear-gradient(to right, rgba(223, 137, 8, 0.4) 0%, rgba(180, 21, 255, 0.4) 100%);
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
 }
 
 .work-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
-.work-card img {
+.work-card-image {
     width: 100%;
-    height: 180px;
+    height: 100%;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    border-radius: 15px;
+    transition: transform 0.4s ease;
 }
 
-.work-card h3 {
-    font-size: 1.2rem;
-    color: #fff;
-    margin-bottom: 10px;
-    opacity: 0.9;
+.work-card:hover .work-card-image {
+    transform: scale(1.1);
 }
 
-.work-card p {
-    font-size: 0.9rem;
-    color: #ddd;
-    margin-bottom: 15px;
+/* The overlay that appears on hover */
+.work-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 80%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 25px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
-.work-card a {
-    display: inline-block;
-    text-decoration: none;
-    color: #fff;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s;
+.work-card:hover .work-card-overlay {
+    opacity: 1;
 }
 
-.work-card a:hover {
-    background: rgba(255, 255, 255, 0.4);
+.work-card-overlay h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.work-card-overlay p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 0; /* Adjusted to let the link container handle margin */
+}
+
+.work-card-link {
+    color: white;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.work-card-link:hover {
+    color: #DF8908;
+    transform: scale(1.1);
 }
