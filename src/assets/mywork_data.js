@@ -23,7 +23,7 @@ export const mywork_data = [
       'Developed a feature-rich e-commerce application using Java Spring Boot and React with Tailwind CSS.',
     w_img: nykaa,
     w_github: 'https://github.com/akashkumarsky/nykaa',
-    w_url: 'https://nykaa-frontend.onrender.com/',
+    w_url: 'https://naykaa-clone.netlify.app/',
   },
   {
     w_id: 3,
